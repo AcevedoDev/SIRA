@@ -1,0 +1,173 @@
+<?php
+session_start();
+
+// Redirige al login si no hay sesión activa
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: index.html");
+    exit();
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SIRA - Control Horario</title>
+  <link rel="shortcut icon" href="IMG/logoSena.png" type="image/x-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <!-- LOADING -->
+  <div id="loadingOverlay" class="position-fixed top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center bg-white" style="z-index: 2000;">
+  <div class="spinner-border text-success" style="width: 4rem; height: 4rem;" role="status">
+    <span class="visually-hidden">Cargando...</span>
+  </div>
+  <p class="mt-3 fw-semibold text-success fs-5">Cargando...</p>
+</div>
+ 
+  <!-- BARRA DE NAVEGACIÓN ORIGINAL -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="">SIRA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="dashboard.php">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="registro.html">Registro</a></li>
+          <li class="nav-item"><a class="nav-link" href="historialTodos.html">Historial</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="#">Ficha</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Tiempo</a></li> -->
+        </ul>
+        <ul class="navbar-nav ms-auto">
+        <!-- Icono de usuario (añadido) -->
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <button class="btn btn-link nav-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#userPanel">
+              <i class="bi bi-person-fill"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-8 col-lg-10">
+        <div class="dashboard-card">
+          <div class="dashboard-header mb-3">
+            <img src="IMG/logoSena.png" alt="logoSena">
+            <div>
+              <h2 class="fw-bold text-success mb-0">¡Bienvenido, Juan Pérez!</h2>
+              <div class="text-muted fs-6">Hoy es viernes, 2 de mayo de 2025</div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-4">
+              <div class="info-box">
+                <span class="icon-circle"><i class="bi bi-clock-history"></i></span>
+                <div>
+                  <strong>En turno</strong><br>
+                  <span class="text-muted">7:00 am - 7:00 pm</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="info-box">
+                <span class="icon-circle"><i class="bi bi-calendar-check"></i></span>
+                <div>
+                  <strong>Última marcación</strong><br>
+                  <span class="text-primary">Entrada - 7:01 am</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="info-box">
+                <span class="icon-circle"><i class="bi bi-bar-chart-line"></i></span>
+                <div>
+                  <strong>Horas trabajadas</strong><br>
+                  <span class="text-muted">5 h 20 min</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="alert alert-info text-center">
+            <i class="bi bi-info-circle-fill me-2"></i>
+            Recuerda marcar tu entrada y salida correctamente. Si tienes dudas, comunícate con el coordinador.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Offcanvas (añadido antes del footer) -->
+   <div class="offcanvas offcanvas-end" tabindex="-1" id="userPanel" aria-labelledby="userPanelLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="userPanelLabel">Mi perfil</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="d-flex align-items-center gap-3 mb-4 justify-content-center">
+        <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Foto de perfil" class="profile-img rounded-circle" style="width:64px;height:64px;">
+        <div class="fs-6">
+          <strong class="d-block fw-semibold" id="offcanvasNombreUsuario"></strong>
+          <span class="text-muted" id="offcanvasPrograma"></span>
+        </div>
+      </div>
+      <ul class="list-unstyled mb-4">
+        <li class="mb-2">
+          <strong>Identificación</strong><br>
+          <input type="text" class="form-control" id="offcanvasIdentificacion" readonly>
+        </li>
+        <li class="mb-2">
+          <strong>Perfil</strong><br>
+          <input type="text" class="form-control" id="offcanvasPerfil" readonly>
+        </li>
+        <li class="mb-2">
+          <strong>Correo</strong><br>
+          <input type="text" class="form-control" id="offcanvasCorreo" readonly>
+        </li>
+      </ul>
+      
+      <!-- <ul class="list-unstyled mb-4">
+        <li class="mb-2"><strong>Identificación</strong> <br> <span class="text-muted" id="offcanvasIdentificacion"></span></li>
+        <li class="mb-2"><strong>Perfil</strong> <br> <span class="text-muted" id="offcanvasPerfil"></span></li>
+        <li class="mb-2"><strong>Correo</strong> <br> <span class="text-muted" id="offcanvasCorreo"></span></li>
+      </ul> -->
+
+       <!-- Opción de Soporte en el Offcanvas -->
+       <a href="soporte.html" class="btn btn-outline-success w-100 d-flex align-items-center justify-content-center gap-2 mb-3" style="transition: box-shadow 0.2s;">
+        <i class="bi bi-headset" style="font-size: 1.2rem;"></i>
+        <span class="fw-semibold">Soporte</span>
+      </a>
+
+      <!-- Botón cerrar sesión -->
+      <a href="logout.php">
+      <button class="btn btn-danger w-100 mt-3" id="btnCerrarSesion">Cerrar sesión</button>
+      </a>
+    </div>
+  </div>
+
+  <footer class="p-2 text-center mt-5 mt-auto">
+    <p class="mt-3 fw-bold">&copy; SIRA</p>
+  </footer>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <!-- El script del loading y el de inicar sesión estan en bundle.min.js  -->
+</body>
+</html>
+

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Control Horario - Demo</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <!-- BARRA NAV -->
+  <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="index.html">SENA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registro.html">Registro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Horario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Ficha</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Tiempo</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENEDOR FLEXIBLE PARA CENTRAR -->
+  <main class="contenedor-flex">
+    <!-- FORMULARIO -->
+    <div class="contenedor pt-4" id="contenedor-formulario">
+      <div id="titulo-formulario" class="text-center mb-4">
+        <div><img src="https://actorador.net/wp-content/uploads/2022/12/Sena_Colombia_logo.svg_-1024x1004.png"
+            width="110px" height="90px" alt="logoSena"></div>
+        <h2 class="mt-2">Contactos</h2>
+        <p class="fs-5">Complete el formulario para contactarnos</p>
+      </div>
+      <form action="" id="miFormulario">
+        <div class="mb-3">
+          <input type="text" class="form-control" id="identificacion" placeholder="Identificación" required>
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" id="nombre" placeholder="Nombre Completo" required>
+        </div>
+
+        <div class="mb-3">
+          <select class="form-select" id="perfil" name="perfil" required onchange="mostrarCamposAdicionales()">
+            <option value="" selected disabled>Seleccione un perfil</option>
+            <option value="administrativo">Administrativo</option>
+            <option value="estudiante">Estudiante</option>
+            <option value="egresado">Egresado</option>
+            <option value="instructor">Instructor</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <!-- Campos adicionales que se mostrarán/ocultarán -->
+        <div id="camposAdministrativo" style="display: none;">
+          <div class="mb-3">
+            <select class="form-select" id="cargoAdministrativo">
+              <option value="" selected disabled>Seleccione un cargo</option>
+              <option value="secretaria">Secretaria</option>
+              <option value="coordinador">Coordinador</option>
+              <option value="asistente">Asistente</option>
+              <option value="bibliotecario">Bibliotecario</option>
+              <option value="enfermero">Enfermero</option>
+              <option value="vigilante">Vigilante</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="camposEstudiante" style="display: none;">
+          <div class="mb-3">
+            <input type="text" class="form-control" id="ficha" placeholder="Número de Ficha">
+          </div>
+        </div>
+
+        <div id="camposEgresado" style="display: none;">
+          <div class="mb-3">
+            <input type="number" class="form-control" id="anioGraduacion" placeholder="Año de Graduación">
+          </div>
+        </div>
+
+        <div id="camposInstructor" style="display: none;">
+          <div class="mb-3">
+            <select class="form-select" id="tipoContrato">
+              <option value="" selected disabled>Seleccione un tipo de contrato</option>
+              <option value="planta">Planta</option>
+              <option value="Contratista">Contratista</option>
+              <option value="honorarios">Honorarios</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" id="areaEnsenanzaInstructor" placeholder="Área de Enseñanza">
+          </div>
+        </div>
+
+        <div id="camposOtro" style="display: none;">
+          <div class="mb-3">
+            <input type="text" class="form-control" id="descripcionOtro" placeholder="Describa su perfil">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <input type="tel" class="form-control" id="celular" placeholder="Teléfono" pattern="[0-9]{7,15}"
+            title="Ingrese un número válido" required>
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Correo Electrónico"
+            required>
+        </div>
+
+        <!-- Textarea para "Egresado" y "Otro" -->
+        <div id="razonVisitaContainer" style="display: none;" class="mb-3">
+          <textarea class="form-control" id="razonVisita" rows="3" placeholder="Razón de la Visita"></textarea>
+        </div>
+
+        <div class="mb-3 pt-4 d-flex justify-content-center gap-3">
+          <button type="submit" class="btn btn-primary col-5 fs-5" onclick="validarFormulario(event)">Enviar</button>
+          <button type="reset" class="btn btn-primary col-5 fs-5">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- PIE DE PAGINA -->
+  <footer class="p-2 text-center">
+    <p class="mt-3 fw-bold text-white">&copy; SENA 2025 - Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

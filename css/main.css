@@ -1,0 +1,431 @@
+/* CSS General */
+
+
+
+body {
+    font-family: 'Inter', Arial, sans-serif; /* Establece la fuente principal del body */
+    background: #f6f8fa; /* Color de fondo del body */
+    color: #222; /* Color de texto principal del body */
+    
+  }
+  
+  
+
+  /* Imagen de perfil */
+  .profile-img {
+    width: 40px; /* Ancho de la imagen de perfil */
+    height: 40px; /* Alto de la imagen de perfil */
+    border-radius: 50%; /* Hace que la imagen sea redonda */
+    object-fit: cover; /* Asegura que la imagen cubra el área, recortando si es necesario */
+    border: 2px solid #ddd; /* Agrega un borde a la imagen */
+  }
+  
+  /* Fondo claro redondeado */
+  .bg-light-rounded {
+    background-color: #f3f5f7; /* Color de fondo gris claro */
+    border-radius: 12px; /* Borde redondeado */
+  }
+  
+  /* Item de registro */
+  .registro-item {
+    transition: all 0.2s ease; /* Transición suave para los cambios de estado */
+    border-left: 4px solid transparent; /* Borde izquierdo transparente por defecto */
+  }
+  
+  .registro-item:hover {
+    background-color: #f8f9fa; /* Color de fondo al pasar el ratón */
+    border-left-color: #5EB319 /* Color del borde izquierdo al pasar el ratón */
+  }
+  
+
+  
+  /* Estilos específicos para el formulario */
+  body {
+    font-family: 'Inter', Arial, sans-serif; /* Establece la fuente principal del body */
+    background: #f6f8fa url('https://images.unsplash.com/photo-1523961130370-4b95c1a53e3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover fixed; /* Imagen de fondo */
+    color: #222; /* Color de texto principal del body */
+    display: flex; /* Utiliza flexbox para el diseño */
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    min-height: 100vh; /* Asegura que el body ocupe al menos el alto de la ventana */
+  }
+  
+  .contenedor-flex {
+    flex-grow: 1; /* Permite que este contenedor crezca para llenar el espacio restante */
+    display: flex; /* Utiliza flexbox para el diseño */
+    align-items: center; /* Centra verticalmente los elementos */
+    padding: 1rem 0; /* Espaciado superior e inferior */
+    background: rgba(192, 187, 187, 0.3); /* Fondo semi-transparente */
+    backdrop-filter: blur(8px); /* Aplica un efecto de desenfoque al fondo */
+  }
+  
+  #contenedor-formulario {
+    background-color: rgba(255, 255, 255, 0.98); /* Fondo casi blanco */
+    border-radius: 10px; /* Borde redondeado */
+    max-width: 500px; /* Ancho máximo del formulario */
+    width: 100%; /* El formulario ocupa todo el ancho disponible */
+    margin: 2rem auto; /* Margen superior e inferior, centrado horizontalmente */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12); /* Sombra suave */
+    border: 1px solid rgba(0, 0, 0, 0.08); /* Borde sutil */
+  }
+  
+  nav {
+    background-color: #5EB319; /* Fondo verde SENA */
+  }
+
+  footer {
+    margin-top: auto; /* Empuja el footer al final del body */
+    background-color: #5EB319; /* Fondo verde SENA */
+  }
+
+  #enlaceHistorial {
+    color: #5EB319; /* Color verde SENA */
+    text-decoration: none; /* Quitar linea debajo del texto */
+  }
+
+  #btnEnviar, #btnRegistro, #btnBuscar, #btnCancelar {
+    background-color: #5EB319;
+  }
+
+
+  .subtitulo-formulario {
+    font-size: 1.1rem;         /* Más pequeño que el h2, mayor que el texto normal */
+    color: #444;               /* Un gris elegante y legible */
+    font-weight: 400;          /* Ligero pero no demasiado fino */
+    letter-spacing: 0.02em;    /* Un poco de espacio entre letras para elegancia */
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    font-family: 'Inter', Arial, sans-serif;
+  }
+  
+  .separator {
+    width: 100%;
+    border-top: 1px solid #ddd;
+    margin: 0.5rem 0;
+}
+
+/* EVITA QUE LOS DATOS PERSONALES SALGAN DEL CONTENEDOR SI SON DEMASIADO LARGOS */
+.bg-light-rounded {
+  max-width: 260px; /* Igual que el ancho del aside para que no se expanda */
+  word-wrap: break-word; /* Para que las palabras largas se dividan y no expandan el contenedor */
+  overflow-wrap: break-word;
+}
+
+.ColorDatospersonales {
+  color: #5EB319;
+}
+
+/* Al hacer scroll el nav y el footer se ocultan */
+
+#mainNavbar, #mainFooter {
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+.footer-hidden {
+  transform: translateY(100%);
+}
+
+.SenaBievenidaColor {
+  color: #5EB319;
+}
+
+/* Sobrescribir color success de Bootstrap */
+.btn-success {
+  background-color: #5EB319 !important;
+  border-color: #5EB319 !important;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success.active,
+.open > .dropdown-toggle.btn-success {
+  background-color: #4a8a14 !important; /* un tono más oscuro para hover */
+  border-color: #4a8a14 !important;
+}
+
+.text-success {
+  color: #5EB319 !important;
+}
+
+.bg-success {
+  background-color: #5EB319 !important;
+}
+
+
+/* INICIO, INFORMACIÓN DASHBOARD */
+
+body {
+  background: linear-gradient(135deg, #e9f5ee 0%, #f0f4f8 100%);
+  font-family: 'Inter', sans-serif;
+}
+.dashboard-card {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  padding: 2.5rem 2rem;
+  margin-top: 2rem;
+}
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+.dashboard-header img {
+  width: 60px;
+  height: 55px;
+}
+.icon-circle {
+  background: #e9f5ee;
+  border-radius: 50%;
+  padding: 0.7rem;
+  font-size: 1.7rem;
+  color: #198754;
+  margin-right: 0.5rem;
+}
+.info-box {
+  background: #f0f4f8;
+  border-radius: 1rem;
+  padding: 1.2rem 1rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+}
+.alert-info {
+  background: #e9f5ee;
+  color: #198754;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+@media (max-width: 767px) {
+  .dashboard-card {
+    padding: 1.2rem 0.5rem;
+  }
+  .dashboard-header img {
+    width: 45px;
+    height: 40px;
+  }
+}
+
+
+/* BOTON CERRAR SESIÓN */
+
+#btnCerrarSesion {
+  background-color: rgb(233, 12, 12);
+  font-weight: bolder;
+  padding: 8px;
+}
+
+#btnCerrarSesion:hover {
+  color: black;
+  /* color: white; */
+  transition: 
+  box-shadow 0.22s,
+  transform 0.18s,
+  color 0.18s;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 10px rgba(220, 53, 69, 0.10);
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+/* HACER EFECTO BLUR AL ABRIR OFFCANVA */
+.offcanvas-backdrop.show {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Para compatibilidad con Safari */
+  background-color: rgba(0,0,0,0.2); /* Opcional: oscurece un poco el fondo */
+  opacity: 1 !important; /* Asegura que el fondo sea visible */
+}
+
+/*  el panel lateral aparezca con un efecto de deslizamiento y fade */
+
+.offcanvas {
+  transition: transform 0.4s cubic-bezier(.77,0,.18,1), opacity 0.4s;
+  opacity: 0.96;
+}
+
+
+
+/* LOADING */
+
+#loadingOverlay {
+  transition: opacity 0.4s;
+}
+#loadingOverlay.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* fondo blur cuando este cargando la pagina */
+body.loading {
+  filter: blur(3px) grayscale(0.1);
+  pointer-events: none;
+  user-select: none;
+}
+
+
+/* BOTON SOPORTE */
+
+.btn-outline-success:hover {
+  box-shadow: 0 4px 16px rgba(40, 167, 69, 0.15);
+}
+
+
+/* TRANSICIÓN SUAVE EN  BOTONES */
+button, .btn, a, .dashboard-card, .list-group-item, .info-box {
+  transition: 
+    background 0.22s,
+    box-shadow 0.22s,
+    color 0.18s,
+    transform 0.18s;
+}
+
+
+/*  las tarjetas y cajas de información se eleven al pasar el mouse */
+
+.dashboard-card:hover, .info-box:hover, .list-group-item:hover {
+  box-shadow: 0 8px 32px rgba(40,167,69,0.13), 0 2px 8px rgba(0,0,0,0.08);
+  transform: translateY(-2px) scale(1.01);
+  background: #f8f9fa;
+}
+
+
+/* animación sutil de degradado al navbar: */
+
+nav {
+  background: linear-gradient(90deg, #5EB319 0%, #8fd400 100%);
+  background-size: 200% 100%;
+  animation: navbarGradient 6s ease-in-out infinite alternate;
+}
+
+@keyframes navbarGradient {
+  to {
+    background-position: 100% 0;
+  }
+}
+
+/*  los campos de formulario tengan un efecto elegante al enfocarse */
+input:focus, textarea:focus, select:focus {
+  border-color: #5EB319;
+  box-shadow: 0 0 0 2px rgba(94,179,25,0.15);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* los iconos giren o pulsen al pasar el mouse sobre los botones importantes */
+.btn i, .soporte-card i {
+  transition: transform 0.25s cubic-bezier(.77,0,.18,1);
+}
+.btn:hover i, .soporte-card:hover i {
+  transform: scale(1.18) rotate(-8deg);
+}
+
+
+/* PAGINA SOPORTE CSS */
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: linear-gradient(135deg, #e9f5ee 0%, #f0f4f8 100%);
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.soporte-container {
+  max-width: 480px;
+  margin: 3rem auto;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 6px 24px rgba(94,179,25,0.09);
+  padding: 2rem 2rem 1.5rem 2rem;
+  position: relative;
+  z-index: 2;
+}
+.soporte-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.soporte-header .icono-soporte {
+  background: #5EB319;
+  color: #fff;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 2px 12px rgba(94,179,25,0.15);
+}
+.soporte-header h2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #5EB319;
+  letter-spacing: 0.5px;
+}
+.form-label {
+  color: #5EB319;
+  font-weight: 500;
+}
+.form-control:focus, textarea:focus {
+  border-color: #5EB319;
+  box-shadow: 0 0 0 2px rgba(94,179,25,0.13);
+}
+.btn-success {
+  background-color: #5EB319 !important;
+  border-color: #5EB319 !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: background 0.18s, box-shadow 0.18s, transform 0.17s;
+  box-shadow: 0 2px 10px rgba(94,179,25,0.10);
+}
+.btn-success:hover {
+  background-color: #4a8a14 !important;
+  border-color: #4a8a14 !important;
+  box-shadow: 0 6px 24px rgba(94,179,25,0.13);
+  transform: translateY(-2px) scale(1.03);
+}
+.mensaje-contacto {
+  background: #e9f5ee;
+  color: #5EB319;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 1.06rem;
+  box-shadow: 0 2px 8px rgba(94,179,25,0.07);
+}
+@media (max-width: 600px) {
+  .soporte-container {
+    padding: 1.2rem 0.5rem;
+    margin: 1.2rem 0.3rem;
+  }
+  .soporte-header .icono-soporte {
+    width: 42px;
+    height: 42px;
+    font-size: 1.3rem;
+  }
+  .soporte-header h2 {
+    font-size: 1.15rem;
+  }
+}
+
+
+/* EFECTO BORDES REDONDEADO EN LA BARRA DE BUSQUEDA EN REGISTRO */
+.input-group .form-control {
+  border-radius: 0.2rem !important; /* o el valor que desees */
+}
