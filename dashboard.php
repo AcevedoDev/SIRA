@@ -1,4 +1,4 @@
-<?php
+<!-- <php
 session_start();
 
 // Redirige al login si no hay sesión activa
@@ -6,7 +6,7 @@ if (!isset($_SESSION['usuario_id'])) {
     header("Location: index.html");
     exit();
 }
-?>
+?> -->
 
 
 <!DOCTYPE html>
